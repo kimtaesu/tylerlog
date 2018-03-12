@@ -4,10 +4,10 @@
   "description": "",
   "scripts": {
     "start": "npm run build:live",
-    "build:live": "npm run build-sass && nodemon --exec ./node_modules/.bin/ts-node -- src/server.ts && npm run copy-static-assets",
+    "build:live": "npm run build-sass && nodemon --exec ./node_modules/.bin/ts-node -- src/**.ts  && npm run copy-static-assets",
     "test": "./node_modules/.bin/mocha --compilers ts:ts-node/register ./test/*.test.ts",
     "build-sass": "node-sass src/public/css/main.scss dist/public/css/main.css",
-    "watch-sass": "node-sass -w src/public/css/main.scss dist/public/css/main.css",
+    "watch-sass": "node-sass -w -o src/public/css/main.scss dist/public/css/main.css",
     "copy-static-assets": "ts-node copyStaticAssets.ts"
   },
   "keywords": [],
