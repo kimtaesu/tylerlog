@@ -4,8 +4,11 @@
   "description": "",
   "scripts": {
     "start": "npm run build:live",
-    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- src/server.ts",
-    "test": "./node_modules/.bin/mocha --compilers ts:ts-node/register ./test/*.test.ts"
+    "build:live": "npm run build-sass && nodemon --exec ./node_modules/.bin/ts-node -- src/server.ts && npm run copy-static-assets",
+    "test": "./node_modules/.bin/mocha --compilers ts:ts-node/register ./test/*.test.ts",
+    "build-sass": "node-sass src/public/css/main.scss dist/public/css/main.css",
+    "watch-sass": "node-sass -w src/public/css/main.scss dist/public/css/main.css",
+    "copy-static-assets": "ts-node copyStaticAssets.ts"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +21,9 @@
     "mocha": "^5.0.4",
     "mongoose": "^5.0.9",
     "morgan": "^1.9.0",
+    "node-sass": "^4.8.1",
+    "pug": "^2.0.1",
+    "shelljs": "^0.8.1",
     "supertest": "^3.0.0",
     "ts-node": "^5.0.1"
   },
