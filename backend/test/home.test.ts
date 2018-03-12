@@ -1,3 +1,4 @@
+///<reference path="../node_modules/@types/mocha/index.d.ts"/>
 import * as request from 'supertest';
 import * as app from '../src/app';
 
