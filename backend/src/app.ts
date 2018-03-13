@@ -8,6 +8,7 @@ import * as path from "path";
 import * as expressValidator from "express-validator";
 import * as flash from "express-flash";
 import * as session from "express-session";
+import * as compression from "compression";  // compresses requests
 
 dotenv.config({path: ".env.example"});
 
@@ -15,6 +16,8 @@ const app = express();
 
 // morgan logger
 app.use(logger("dev"));
+
+app.use(compression());
 
 app.set("views", path.join(__dirname, "../views"));
 
@@ -36,5 +39,5 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/", homeController.index);
 app.get("/contact", contactController.getContact);
-
+app.post("/contact", contactController.postContact);
 module.exports = app;

@@ -34,13 +34,14 @@ export let postContact = (req: Request, res: Response) => {
     req.flash("errors", errors);
     return res.redirect("/contact");
   }
-
-  const mailOptions = {
-    to: "your@email.com",
-    from: `${req.body.name} <${req.body.email}>`,
-    subject: "Contact Form",
-    text: req.body.message
-  };
+  req.flash("success", {msg: "Email has been sent successfully!"});
+  res.redirect("/contact");
+  // const mailOptions = {
+  //   to: "your@email.com",
+  //   from: `${req.body.name} <${req.body.email}>`,
+  //   subject: "Contact Form",
+  //   text: req.body.message
+  // };
 
   // transporter.sendMail(mailOptions, (err) => {
   //   if (err) {
