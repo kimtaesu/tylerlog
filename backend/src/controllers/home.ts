@@ -1,13 +1,12 @@
-import {NextFunction, Request, Response} from 'express';
-import {default as Book} from '../model/book';
-import {WriteError} from 'mongodb';
+import {Request, Response} from "express";
+import {check} from "express-validator/check";
 
 /**
  * GET /
  * Home page.
  */
-export let index = (req: Request, res: Response, next: NextFunction) => {
-    res.render("home", {
-        title: "Home"
-    });
+export let index = (req: Request, res: Response) => {
+  res.render("home", {
+    title: "Home"
+  });
 };
