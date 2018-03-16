@@ -3,7 +3,7 @@
 // import async from "async";
 // import request from "request";
 // import graph from "fbgraph";
-import {Response, Request, NextFunction} from "express";
+import {Response, Request} from "express";
 
 /**
  * GET /api

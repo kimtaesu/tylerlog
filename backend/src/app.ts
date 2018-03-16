@@ -1,15 +1,16 @@
-import express from 'express';
+import express, {NextFunction, RequestHandler} from 'express';
 
 import dotenv from 'dotenv';
 import logger from "morgan";
 import bodyParser from "body-parser";
 import path from "path";
-import expressValidator from "express-validator";
+import expressValidator = require('express-validator');
 import flash from "express-flash";
 import session from "express-session";
 import compression from "compression";
 
 import * as homeController from './controllers/home';
+import * as userController from './controllers/user';
 import * as contactController from './controllers/contact';
 
 dotenv.config({path: ".env.example"});
