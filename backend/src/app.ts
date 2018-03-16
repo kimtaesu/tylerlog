@@ -1,19 +1,21 @@
-import * as express from 'express';
+import express from 'express';
+
+import dotenv from 'dotenv';
+import logger from "morgan";
+import bodyParser from "body-parser";
+import path from "path";
+import expressValidator from "express-validator";
+import flash from "express-flash";
+import session from "express-session";
+import compression from "compression";
+
 import * as homeController from './controllers/home';
 import * as contactController from './controllers/contact';
-import * as dotenv from 'dotenv';
-import * as logger from "morgan";
-import * as bodyParser from "body-parser";
-import * as path from "path";
-import * as expressValidator from "express-validator";
-import * as flash from "express-flash";
-import * as session from "express-session";
-import * as compression from "compression";  // compresses requests
 
 dotenv.config({path: ".env.example"});
 
 const app = express();
-
+app.use(expressValidator());
 // morgan logger
 app.use(logger("dev"));
 
@@ -22,8 +24,7 @@ app.use(compression());
 app.set("views", path.join(__dirname, "../views"));
 
 app.set("view engine", "pug");
-
-app.use(expressValidator());
+app.use(express.static(path.join(__dirname, "public"), {maxAge: 31557600000}));
 
 
 app.use(flash());

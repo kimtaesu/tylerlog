@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "npm run build:live",
-    "build:live": "npm run build-sass && npm run build-ts &&  npm run tslint && npm run copy-static-assets && nodemon --exec ./node_modules/.bin/ts-node -- src/server.ts",
+    "build:live": "npm run build-sass && npm run build-ts && npm run tslint && npm run copy-static-assets && nodemon --exec ./node_modules/.bin/ts-node -- src/server.ts",
     "test": "./node_modules/.bin/mocha --compilers ts:ts-node/register ./test/*.test.ts",
     "build-sass": "node-sass src/public/css/main.scss dist/public/css/main.css",
     "build-ts": "tsc",
